@@ -116,6 +116,9 @@ class LearningAgent(Agent):
         # If it is not, create a new dictionary for that state
         #   Then, for each action available, set the initial Q-value to 0.0
 
+        if self.learning is False:
+            return
+
         if state not in self.Q:
             self.Q[state] = self.template_q.copy()
 

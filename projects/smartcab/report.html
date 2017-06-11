@@ -13112,9 +13112,9 @@ RK5CYII=
 <ul>
 <li><p>light - We can penalize the agent if it is in an idle state when light is green and moving through an intersection during a red light and break the law.</p>
 </li>
-<li><p>left - We can penalize taking a left turn if left is right or forward since we dont want to barge into the car on the left.</p>
+<li><p>left - If the agent wants to go right on red light and if left traffic is going forward, there will be an accident and we can penalize.</p>
 </li>
-<li><p>oncoming: We should penalize for moving left when oncoming is left or forward since it can cause an accident.</p>
+<li><p>oncoming: We should penalize for moving left when oncoming is right or forward since it can cause an accident.</p>
 </li>
 </ul>
 <p>And the following for efficiency:</p>
