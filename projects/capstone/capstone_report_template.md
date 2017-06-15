@@ -1,26 +1,23 @@
 # Machine Learning Engineer Nanodegree
 ## Capstone Project
-Joe Udacity  
-December 31st, 2050
+Rohan Verma  
+June 15th, 2017
 
 ## I. Definition
-_(approx. 1-2 pages)_
 
 ### Project Overview
-In this section, look to provide a high-level overview of the project in layman’s terms. Questions to ask yourself when writing this section:
-- _Has an overview of the project been provided, such as the problem domain, project origin, and related datasets or input data?_
-- _Has enough background information been given so that an uninformed reader would understand the problem domain and following problem statement?_
+
+In this project, I plan to use Machine Learning Techniques to predict in which country a new user will make their first booking using the [Airbnb New User Bookings](https://www.kaggle.com/c/airbnb-recruiting-new-user-bookings). This project will involve data cleaning, data exploration using visualizations, and testing various algorithms for classification for the same.
 
 ### Problem Statement
-In this section, you will want to clearly define the problem that you are trying to solve, including the strategy (outline of tasks) you will use to achieve the desired solution. You should also thoroughly discuss what the intended solution will be for this problem. Questions to ask yourself when writing this section:
-- _Is the problem statement clearly defined? Will the reader understand what you are expecting to solve?_
-- _Have you thoroughly discussed how you will attempt to solve the problem?_
-- _Is an anticipated solution clearly defined? Will the reader understand what results you are looking for?_
+
+Airbnb, which is a online marketplace where people list, discover, and book accomodations around the world. It has collected various datapoints about users. This data about the patterns of its present user base can be utilized to predict patterns about its future users to provide them with customized suggestions to serve Airbnb's customers better. 
+
+Using this data, the challenge is to predict the destination of choice for the users' first booking.
 
 ### Metrics
-In this section, you will need to clearly define the metrics or calculations you will use to measure performance of a model or result in your project. These calculations and metrics should be justified based on the characteristics of the problem and problem domain. Questions to ask yourself when writing this section:
-- _Are the metrics you’ve chosen to measure the performance of your models clearly discussed and defined?_
-- _Have you provided reasonable justification for the metrics chosen based on the problem and solution?_
+
+Since this is a Kaggle Challenge, we already have an evaluation metric, that is the NDCG (Normalized discounted cumulative gain)
 
 
 ## II. Analysis
