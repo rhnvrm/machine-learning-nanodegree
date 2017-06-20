@@ -13395,8 +13395,11 @@ CiIREREREWm0VBCJiIiIiEijpYJIREREREQarf8PciBJ4b+e11YAAAAASUVORK5CYII=
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Algorithms-and-Techniques">Algorithms and Techniques<a class="anchor-link" href="#Algorithms-and-Techniques">&#182;</a></h3><p>Given that this problem was a multi-class supervised classification problem, we decided to use Decision Trees. Decision trees are powerful in predicting a target by learning simle decision rules learnt using training data. They can handle numerical and categorical data, missing data, along with multiple target classes.</p>
 <p>Although decision trees are good, I decided to use ensemble methods to improve the predictive power. These algorithms were, the random forest classifier and XGBoost.</p>
-<p>Random Forest Classifiers fits number of decision trees on subsamples of a dataset and averages the results.</p>
-<p>The XGBoost algorithm was choosen after research into Kaggle Competitions and it was found out that it proves extremely effective in such arenas. XGBoost is an optimized distributed gradient boosting library designed to be highly efficient, flexible and portable. It produces an ensemble of weak decision tree learners via additive training (boosting).</p>
+<p><strong>Random Forest</strong> Classifier fits number of decision trees on subsamples of a dataset and averages the results.</p>
+<p>A random forest is a collection of random decision trees. In which at each node you will randomly draw a subset of features and the decision tree will predict the classification. Then the same is done with several trees and bagged. This ensemble method will reduce overfitting and provide good classification. The bias-variance trade-off for this algorithm is good and therefore the possibility of overfitting is drastically reduced.</p>
+<p><strong>GridSearchCV</strong> There are many parameters which can be tuned to get a model with very good accuracy. The grid search technique helps us to generate a grid from parameters and use these multiple combinations of parameters and then select the best one which provides best cross-validation results. Although, it is important to note here that the grid search technique only performs hyper-parameter tuning, i.e. the parameters that are not directly learnt within the estimator.
+In scikit-learn, we have GridSearchCV which uses an estimator and a set of hyper-parameters to exhaustively generates candidates from set and generate a validation score and we can then obtain the most optimal parameters systematically. We use this technique to get the best hyperparameters for our Random Forest ensemble.</p>
+<p>The <strong>XGBoost</strong> algorithm was choosen after research into Kaggle Competitions and it was found out that it proves extremely effective in such arenas. XGBoost is an optimized distributed gradient boosting library designed to be highly efficient, flexible and portable. It produces an ensemble of weak decision tree learners via additive training (boosting). XGBoost is short for Extreme Gradient Boosting. This is based on Gradient boosted trees. Boosted trees are basically an ensemble of decision trees which are fit sequentially so that each new tree makes up for errors in the previously existing set of trees. The model is ”boosted” by focusing new additions on correcting the residual errors of the last version of the model. Then you take an approximate step in the gradient direction by training a model to predict the gradient given the data. XGBoost algorithm tuning is a tricky process. Heavy computation power is required for such level of tuning.</p>
 
 </div>
 </div>
@@ -14254,6 +14257,15 @@ wFqD7MYoPO+5jAAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Model-Evaluation-and-Validation">Model Evaluation and Validation<a class="anchor-link" href="#Model-Evaluation-and-Validation">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Below we can see the final NDCG scores of our models on Kaggle. We were able to get a maximum score of <code>0.86911</code> which puts us in the rank 350. Although, since we reduced our feature dimension, it is expected that training on the full dataset would result in much better scores that would be in the <em>Silver to Bronze</em> range in the competition, i.e <code>&lt; 140</code> rank.</p>
 <p>Since, our goal was to implement a valid solution and not a competitive one, we have performed reasonably okay given the little computational resources at our side.</p>
 
@@ -14988,6 +15000,38 @@ CCGEEEIIMUL8f0HDNZlZSCneAAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Justification">Justification<a class="anchor-link" href="#Justification">&#182;</a></h3><p>One of the important points to discus about a trained machine learning algorithm is whether it will scale, will it be feasible in the scenario and performance should be consistent with varied data. We can then say whether the model is <strong>robust</strong> or not.
+The model, although trained with a reduced feature space, gives a better result with the private subset of the the training set as can be seen by the results on Kaggle. Also, the training and prediction times were very less due to the feature space reduction step and the NDCG score was also good enough. Depending on the scale of the deployment, the parameters and the number of features can be scaled as well. Hence, the model seems to be robust. Alongside this, the model seems to be trustable and aligns well with our expected solutions outcomes.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="V.-Conclusion">V. Conclusion<a class="anchor-link" href="#V.-Conclusion">&#182;</a></h2><h5 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h5><p>We have completed the project by designing a model with <code>rank:pairwise</code> as the objective with XGBoost. The model has been trained on the training dataset and gives a decent result for both the validation score on a subset of the training set and score on kaggle. The dataset was cleaned, features were added and one hot encoded to finally transform it into 198 features. Out of these 198 features our final model was trained on the top 30 features given by an XGBoost model trained with the default hyperparameters on a validation set. The model places around the 350th position on the private leaderboard with a score of 0.86911. The highest score is 0.88697 and is just 0.01786 less than this. Hence, our final model seems to be a decent model for this problem.</p>
+<h5 id="Learnings">Learnings<a class="anchor-link" href="#Learnings">&#182;</a></h5><p>I learnt how to make sense of dataset provided using visualizations. Cleaning datasets and modifying columns according to the needs of the model by One Hot Encoding and reducing feature space was a skill I learnt effectively. Using GridSearchCV for hyperparameter tuning of the RandomForest classifier. Finally, one of the most important thing I understood was the usage of the XGBoost algorithm and its hyperparameters that will help me in the future to compete in Kaggle competitions and in my future worklpace.</p>
+<h5 id="Limitations">Limitations<a class="anchor-link" href="#Limitations">&#182;</a></h5><p>Computational power was a major limitation for me. The training was done on an Asus K53SV laptop with 8 GB Ram and a Core i5 processor. The training time for these models was in the range of a few minutes after feature space reduction. Therefore, iterating over various hyper parameters took a lot of time. The Jupyter notebook would be responsive at times and required me to pickle the processed dataset so as to not lose a lot of time. Given more computational power, more parameters and tuning can be performed.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h5 id="Free-Form-Visualization">Free Form Visualization<a class="anchor-link" href="#Free-Form-Visualization">&#182;</a></h5>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>The following plot shows the prediction distribution of our final model:</p>
 
 </div>
@@ -15318,19 +15362,8 @@ sfAgIiIiIqKoY+FBRERERERR9y9rUxvNckkoIQAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>An important point to note from this observation above is that users tend to not book as their first choice. AirBnb can thereby push users to book destinations. Also, since, all the users were US Citizens, we can see that most users booked to destinations inside the US itself. A good marketing strategy would be to thereby push customers via discounts etc to book inside the US.</p>
+<p>An important point to note from this observation above is that users tend to not book as their first choice. Airbnb can thereby push users to book destinations. Also, since, all the users were US Citizens, we can see that most users booked to destinations inside the US itself. A good marketing strategy would be to thereby push customers via discounts etc to book inside the US.</p>
 <p>Also, training the users who booked inside the US for the cities they booked could prove highly beneficial for Airbnb.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Concluding-Remarks">Concluding Remarks<a class="anchor-link" href="#Concluding-Remarks">&#182;</a></h3><h5 id="Learnings">Learnings<a class="anchor-link" href="#Learnings">&#182;</a></h5><p>I learnt how to make sense of dataset provided using visualizations. Cleaning datasets and modifying columns according to the needs of the model by One Hot Encoding and reducing feature space was a skill I learnt effectively. Using GridSearchCV for hyperparameter tuning of the RandomForest classifier. Finally, one of the most important thing I understood was the usage of the XGBoost algorithm and its hyperparameters that will help me in the future to compete in Kaggle competitions and in my future worklpace.</p>
-<h5 id="Limitations">Limitations<a class="anchor-link" href="#Limitations">&#182;</a></h5><p>Computational power was a major limitation for me. The training was done on an Asus K53SV laptop with 8 GB Ram and a Core i5 processor. The training time for these models was in the range of a few minutes after feature space reduction. Therefore, iterating over various hyper parameters took a lot of time. The Jupyter notebook would be responsive at times and required me to pickle the processed dataset so as to not lose a lot of time. Given more computational power, more parameters and tuning can be performed.</p>
 
 </div>
 </div>
