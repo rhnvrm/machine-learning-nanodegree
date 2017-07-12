@@ -19,6 +19,11 @@ Reviewed unstructured data to understand the patterns and natural categories tha
 
 Applied reinforcement learning to build a simulated vehicle navigation agent. This project involved modeling a complex control problem in terms of limited available inputs, and designing a scheme to automatically learn an optimal driving strategy based on rewards and penalties.
 
+### Image Classification (Deep Learning)
+
+Classified images from the CIFAR-10 dataset. The dataset consisted of airplanes, dogs, cats, and other objects. The project involed preprocessing the images, then training a convolutional neural network on all the samples. The images needed to be normalized and the labels had to be one-hot encoded. Built convolutional, max pooling, dropout, and fully connected layers and see the neural network's predictions on the sample images.
+
+
 ### Machine Learning Capstone Project - Airbnb New User Bookings Dataset
 
 Using data from Airbnb New User Bookings dataset, predicted the destination of choice for a new users' first booking. Identified a relevant real-world problem that can be solved using machine learning, and modeled it using techniques learned throughout the Nanodegree. Presented the best solution achieved, discussed its strengths and weaknesses, and scope for future work.
